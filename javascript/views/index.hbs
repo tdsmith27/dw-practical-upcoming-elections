@@ -18,7 +18,7 @@
       <select id="state-field" name="state">
         <option></option>
         {{#each states}}
-          <option value="{{this}}">{{this}}</option>
+        <option value="{{this}}">{{this}}</option>
         {{/each}}
       </select>
       <label for="zip-field">ZIP:</label>
@@ -29,3 +29,27 @@
     </div>
   </form>
 </div>
+
+{{#if results}}
+<div class="results">
+  <h2>Here are your upcoming elections</h2>
+  <ol>
+    {{#each results}}
+    <li>
+      <strong>{{description}}</strong> -
+      {{#if type}}<span>{{type}}</span> -{{/if}}
+      <span>{{date}}</span>
+      <br>
+      <a href={{website}}>website</a>
+    </li>
+    <br>
+    {{/each}}
+  </ol>
+</div>
+{{/if}}
+
+{{#unless results}}
+<div class="results">
+  <h2>No upcoming elections found</h2>
+</div>
+{{/unless}}

@@ -15,10 +15,17 @@ router.post('/', function(req, res, next) {
 
 
   axios.get(apiReqUrl, reqHeaders).then(response => {
-    console.log(response.data);
-  })
+    // convert dates to a readable format
+    let results = response.data.map(election => {
+      election.date = new Date(election.date).toDateString();
+      return election;
+    });
 
-  res.render('index', { title: 'Find My Election', states: us_states });
+    res.render('index', { title: 'Find My Election', states: us_states, results});
+  }).catch(error => {
+    res.render('error', {error})
+  });
+
 });
 
 module.exports = router;
