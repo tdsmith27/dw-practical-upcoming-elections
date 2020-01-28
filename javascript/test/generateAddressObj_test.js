@@ -15,4 +15,4 @@ tap.test('generateAddressObj correctly formats state and city values', t => {
   t.same(formatted, generateAddressObj(unformatted4), "Correctly formats unformatted address fields")
   
   t.end();
-})
+});

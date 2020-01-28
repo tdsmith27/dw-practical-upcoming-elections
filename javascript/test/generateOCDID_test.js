@@ -12,4 +12,4 @@ tap.test('generateOCDID correctly formats state and place OCDID values', t => {
   t.same(OCDIDObj, generateOCDID(addressObj), "Correctly generates OCDID object from formatted address object");
 
   t.end();
-})
+});
